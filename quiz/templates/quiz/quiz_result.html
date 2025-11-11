@@ -1,0 +1,10 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+<h3>Quiz Result</h3>
+<p>Your Score: {{ score }} / {{ total }}</p>
+
+<a href="{% url 'quiz_list' quiz.subject.id %}">Take more quizzes</a> |
+<a href="{% url 'home' %}">Go Home</a>
+{% endblock %}
+

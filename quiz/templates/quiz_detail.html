@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ quiz.title }}</h2>
+<form method="post">
+  {% csrf_token %}
+  {% for q in questions %}
+  <div class="mb-3">
+    <p>
+      <strong>Q{{ forloop.counter }}.</strong> {{ q.text }}
+      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="startVoiceInput('{{ q.id }}')">🎤 Answer by Voice</button>
+    </p>
+    {% for opt in q.options.all %}
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="question_{{ q.id }}" value="{{ opt.id }}" id="opt{{ opt.id }}">
+      <label class="form-check-label" for="opt{{ opt.id }}">{{ opt.text }}</label>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+  <button type="submit" class="btn btn-success">Submit Quiz</button>
+</form>
+
+<a href="{% url 'quiz_list' %}" class="btn btn-outline-secondary mt-3">← Back</a>
+
+<script>
+function startVoiceInput(qid) {
+  if (!('webkitSpeechRecognition' in window)) {
+    alert("Voice input not supported in this browser.");
+    return;
+  }
+  const rec = new webkitSpeechRecognition();
+  rec.lang = 'en-IN';
+  rec.onresult = (event) => {
+    const transcript = event.results[0][0].transcript.toLowerCase();
+    document.querySelectorAll(`[name='question_${qid}']`).forEach(radio => {
+      if (transcript.includes(radio.nextElementSibling.innerText.toLowerCase())) {
+        radio.checked = true;
+      }
+    });
+  };
+  rec.start();
+}
+</script>
+{% endblock %}

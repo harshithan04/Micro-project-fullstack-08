@@ -1,0 +1,7 @@
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <label>Age:</label>
+    <input type="number" name="age">
+    <button type="submit">Register</button>
+</form>

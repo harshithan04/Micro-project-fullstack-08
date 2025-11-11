@@ -1,0 +1,17 @@
+{% extends "quiz/base.html" %}
+{% block content %}
+<h3>Subjects</h3>
+<ul>
+    {% for subject in subjects %}
+    <li>{{ subject.name }}
+        <ul>
+            {% for quiz in subject.quiz_set.all %}
+            <li><a href="{% url 'quiz_detail' quiz.id %}">{{ quiz.title }}</a></li>
+            {% empty %}
+            <li>No quizzes yet</li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

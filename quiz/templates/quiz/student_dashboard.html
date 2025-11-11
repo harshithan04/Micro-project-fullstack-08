@@ -1,0 +1,13 @@
+{% extends 'quiz/base.html' %}
+{% block content %}
+<h2>Student Dashboard</h2>
+<h3>Your subjects:</h3>
+<ul>
+{% for subject in subjects %}
+    <li><a href="#">{{ subject.name }}</a></li>
+{% empty %}
+    <li>No subjects available</li>
+{% endfor %}
+</ul>
+{% endblock %}
+

@@ -1,0 +1,17 @@
+<h3>Hello, {{ profile.user.username }} (Age: {{ profile.age }})</h3>
+
+<h4>Subjects:</h4>
+<ul>
+{% for s in subjects %}
+    <li><a href="{% url 'take_quiz' s.id %}">{{ s.name }}</a></li>
+{% endfor %}
+</ul>
+
+<h4>Previous Scores:</h4>
+<ul>
+{% for sc in scores %}
+    <li>{{ sc.subject.name }} - {{ sc.score }}</li>
+{% empty %}
+    <li>No attempts yet</li>
+{% endfor %}
+</ul>

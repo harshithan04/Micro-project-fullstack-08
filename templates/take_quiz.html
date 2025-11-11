@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Take Quiz</title>
+</head>
+<body>
+    <h2>Subject: {{ subject.name }}</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {% for q in questions %}
+            <h4>{{ q.text }}</h4>
+            <label><input type="radio" name="{{ q.id }}" value="{{ q.option1 }}"> {{ q.option1 }}</label><br>
+            <label><input type="radio" name="{{ q.id }}" value="{{ q.option2 }}"> {{ q.option2 }}</label><br>
+            <label><input type="radio" name="{{ q.id }}" value="{{ q.option3 }}"> {{ q.option3 }}</label><br>
+            <label><input type="radio" name="{{ q.id }}" value="{{ q.option4 }}"> {{ q.option4 }}</label><br>
+            <hr>
+        {% endfor %}
+
+        <button type="submit">Submit Quiz</button>
+    </form>
+</body>
+</html>
+

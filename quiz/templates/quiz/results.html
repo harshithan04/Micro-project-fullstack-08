@@ -1,0 +1,11 @@
+{% extends "quiz/base.html" %}
+{% block content %}
+<h3>Your Results</h3>
+<ul>
+    {% for r in results %}
+    <li>{{ r.quiz.title }} → Score: {{ r.score }}/{{ r.total }}</li>
+    {% empty %}
+    <li>No results yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

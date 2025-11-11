@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">Leaderboard 🏆</h2>
+
+<table class="table table-bordered text-center bg-white shadow-sm">
+  <thead class="table-light">
+    <tr>
+      <th>Rank</th>
+      <th>Username</th>
+      <th>Score</th>
+      <th>Quiz</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for entry in leaderboard %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ entry.user.username }}</td>
+      <td>{{ entry.score }}</td>
+      <td>{{ entry.quiz.title }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="4">No scores yet!</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<a href="{% url 'dashboard' %}" class="btn btn-outline-secondary mt-3">← Back to Dashboard</a>
+{% endblock %}

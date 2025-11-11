@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center">
+  <h2>Quiz Completed!</h2>
+  <h4>Your Score: {{ score }}/{{ total }}</h4>
+
+  {% if percentage >= 80 %}
+  <div class="alert alert-success">Excellent work 🎉!</div>
+  {% elif percentage >= 50 %}
+  <div class="alert alert-warning">Good effort 👍 Keep practicing!</div>
+  {% else %}
+  <div class="alert alert-danger">Don’t worry — you can try again 💪</div>
+  {% endif %}
+
+  <a href="{% url 'quiz_list' %}" class="btn btn-outline-primary mt-3">Back to Quizzes</a>
+</div>
+{% endblock %}

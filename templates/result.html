@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Results</h2>
+<ul>
+    {% for s in scores %}
+        <li>{{ s.subject.name }} — {{ s.score }} marks</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+<h3>Quizzes in {{ subject.name }}</h3>
+<ul>
+    {% for quiz in quizzes %}
+        <li><a href="{% url 'start_quiz' quiz.id %}">{{ quiz.title }}</a></li>
+    {% empty %}
+        <p>No quizzes available.</p>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'subject_list' %}">⬅ Back to Subjects</a>
+{% endblock %}
+

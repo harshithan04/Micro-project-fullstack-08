@@ -1,0 +1,12 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+<h3>Select a Subject</h3>
+<ul>
+    {% for subject in subjects %}
+        <li><a href="{% url 'quiz_list' subject.id %}">{{ subject.name }}</a></li>
+    {% empty %}
+        <p>No subjects found.</p>
+    {% endfor %}
+</ul>
+{% endblock %}

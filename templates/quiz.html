@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Quiz - {{ subject.name }}</h2>
+
+{% for q in questions %}
+<p><strong>{{ q.text }}</strong></p>
+<ul>
+    <li>{{ q.option1 }}</li>
+    <li>{{ q.option2 }}</li>
+    <li>{{ q.option3 }}</li>
+    <li>{{ q.option4 }}</li>
+</ul>
+{% endfor %}
+{% endblock %}

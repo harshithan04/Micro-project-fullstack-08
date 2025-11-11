@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Welcome, {{ user.username }}!</h2>
+
+{% if user.is_staff %}
+  <h5>Teacher/Admin Dashboard</h5>
+  <a href="{% url 'admin_panel' %}" class="btn btn-outline-primary mb-3">Manage Quizzes</a>
+{% else %}
+  <h5>Student Dashboard</h5>
+  <a href="{% url 'quiz_list' %}" class="btn btn-outline-success mb-3">Take a Quiz</a>
+  <a href="{% url 'leaderboard' %}" class="btn btn-outline-info mb-3">View Leaderboard</a>
+  <a href="{% url 'profile' %}" class="btn btn-outline-secondary mb-3">My Profile</a>
+{% endif %}
+{% endblock %}

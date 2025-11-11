@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Teacher Dashboard</h2>
+
+<a href="{% url 'add_subject' %}">Add New Subject</a>
+<br><br>
+
+<h3>Subjects:</h3>
+<ul>
+    {% for s in subjects %}
+        <li>
+            {{ s.name }}
+            | <a href="{% url 'add_question' s.id %}">Add Questions</a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+

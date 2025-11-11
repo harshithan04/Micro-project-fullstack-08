@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Welcome, {{ user.username }}!</h2>
+<p>This is your dashboard.</p>
+
+<hr>
+
+<h3>Available Quizzes</h3>
+
+{% if quizzes %}
+    <ul>
+        {% for quiz in quizzes %}
+            <li>
+                <strong>{{ quiz.title }}</strong> — {{ quiz.description }} <br>
+                <a href="{% url 'quiz_detail' quiz.id %}">Start Quiz</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No quizzes available right now. Please check back later!</p>
+{% endif %}
+
+<hr>
+
+<p><a href="{% url 'logout' %}">Logout</a></p>
+{% endblock %}
