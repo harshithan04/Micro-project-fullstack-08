@@ -1,20 +1,10 @@
 # Student Quiz Project 
-# 🎓 Student Quiz Application (Full Stack Micro Project)
+# 🎓 Student Quiz Application 
 
-A Django-based **Student Quiz Application** developed as a micro-project for Full Stack Development.
+A Django-based **Student Quiz Application** developed as a project for Full Stack Development.
 
 This application allows teachers (admins) to create subjects and quizzes, and students to take quizzes and view their scores.
 
----
-
-## 👥 Team Members
-
-| Name | USN |
-| Harshitha N | 4MC23IS041|
-| Harshitha H S | 4MC23IS039 |
-| Prerana K | 4MC23IS081 |
-| Jeevitha D J | 4MC23IS051 |
-| Monisha K P | 4MC23IS064 |
 ---
 
 ## 🧠 Project Description
